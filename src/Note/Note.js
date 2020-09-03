@@ -34,6 +34,7 @@ export default class Note extends React.Component {
       })
       .catch(error => {
         console.error({ error })
+        throw new Error(error)
       })
   }
 
