@@ -15,7 +15,6 @@ class App extends Component {
         notes: [],
         folders: []
     };
-
     componentDidMount() {
         Promise.all([
             fetch(`${config.API_ENDPOINT}/notes`),
@@ -42,7 +41,11 @@ class App extends Component {
             notes: this.state.notes.filter(note => note.id !== noteId)
         });
     };
-
+    handleAddFolder = (folder) =>{
+        this.setState({
+            folders:[...this.state.folders, folder]
+        })
+    }
     renderNavRoutes() {
         return (
             <>
@@ -82,7 +85,8 @@ class App extends Component {
         const value = {
             notes: this.state.notes,
             folders: this.state.folders,
-            deleteNote: this.handleDeleteNote
+            deleteNote: this.handleDeleteNote,
+            handleAddFolder: this.handleAddFolder
         };
         return (
             <ApiContext.Provider value={value}>
