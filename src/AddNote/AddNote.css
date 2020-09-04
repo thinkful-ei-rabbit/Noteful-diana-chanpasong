@@ -1,0 +1,31 @@
+.AddNote{
+    color: white;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.AddNote .form-group{
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    width: 100%;
+}
+.AddNote .form-group input{
+    margin: 10px 0;
+}
+.AddNote .form-group select{
+    margin-top: 10px;
+    font-size: 1em;
+}
+.AddNote button {
+    border-style: none;
+    background: rgb(0,0,0,0);
+    border: solid 2px #fff;
+    color: white;
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+    font-size: 1.4em;
+    cursor: pointer;
+}

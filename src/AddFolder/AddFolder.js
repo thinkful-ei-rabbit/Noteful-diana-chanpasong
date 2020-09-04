@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../config';
 import APIContext from '../ApiContext';
+import './AddFolder.css';
 export default class AddFolder extends React.Component {
     static contextType = APIContext;
 
@@ -31,7 +32,7 @@ export default class AddFolder extends React.Component {
             <form className="AddFolder" onSubmit={e => this.handleSubmit(e)}>
                 <h2>AddFolder</h2>
                 <div className="form-group">
-                    <label htmlFor="folderName">Folder-Name</label>
+                    <label htmlFor="folderName">Folder-Name:</label>
                     <input type="text" className="folderInput"
                         name="folderName" id="folderName" required/>
                 </div>

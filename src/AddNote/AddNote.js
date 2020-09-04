@@ -1,7 +1,7 @@
 import React from 'react';
 import config from '../config';
 import APIContext from '../ApiContext';
-
+import './AddNote.css';
 export default class AddNote extends React.Component {
     static contextType = APIContext;
 
@@ -47,7 +47,7 @@ export default class AddNote extends React.Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="noteContent">Note Content</label>
-                    <input type="text" className="noteInput"
+                    <textarea type="text" className="noteInput"
                         name="noteContent" id="noteContent" required/>
                 </div>
                 <div className="form-group">

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from '../CircleButton/CircleButton'
 import ApiContext from '../ApiContext'
 import { findNote, findFolder } from '../notes-helpers'
+import PropTypes from 'prop-types';
 import './NotePageNav.css'
 
 export default class NotePageNav extends React.Component {
@@ -13,6 +14,10 @@ export default class NotePageNav extends React.Component {
     match: {
       params: {}
     }
+  }
+  static propTypes = {
+    history: PropTypes.object,
+    match: PropTypes.object,
   }
   static contextType = ApiContext;
 
