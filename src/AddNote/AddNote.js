@@ -3,6 +3,12 @@ import config from '../config';
 import APIContext from '../ApiContext';
 import './AddNote.css';
 export default class AddNote extends React.Component {
+    state = {
+        selectedFolderId: {
+            value: "",
+            touched: false
+        }
+    }
     static contextType = APIContext;
 
     handleSubmit(event) {
@@ -10,7 +16,7 @@ export default class AddNote extends React.Component {
         // process form values here
         const noteName = event.target.noteName.value;
         const noteContent = event.target.noteContent.value;
-        const noteFolderId = this.context.selectedFolderId;
+        const noteFolderId = this.state.selectedFolderId.value;
         const newDate = new Date().toISOString();
         console.log(noteFolderId);
         //console.log("This is the folderName", folderName);
@@ -33,8 +39,16 @@ export default class AddNote extends React.Component {
     }
     handleFolderAssignment(value){
         console.log("this should be the value of the folder?", value);
-        this.context.selectedFolderId = value;
+        // this.context.selectedFolderId = ;
+        this.setState({
+            selectedFolderId: {value: value, touched: true}
+        })
 
+    }
+    validateFolder = () => {
+        if (this.state.selectedFolderId.value === ""){
+            return "Please choose a folder value!"
+        }
     }
     render() {
         return (
@@ -53,6 +67,9 @@ export default class AddNote extends React.Component {
                 <div className="form-group">
                     <label htmlFor="noteFolder">Note Folder</label>
                     <select onChange={(e)=>this.handleFolderAssignment(e.target.value)} required>
+                        <option key="default-option" id="default-id" value="">
+                            Choose a folder
+                        </option>
                         {this.context.folders.map(folder => {
                             return(
                                 <option key={folder.id} id={folder.id} value={folder.id}>{folder.name}</option>
@@ -63,7 +80,9 @@ export default class AddNote extends React.Component {
                         name="noteContent" id="noteContent" required/> */}
                 </div>
                 <div className="registration__button__group">
-                    <button type="submit" className="registration__button">
+                    <button type="submit" className="registration__button"
+                        disabled={this.validateFolder()}
+                    >
                         Save
                     </button>
                 </div>

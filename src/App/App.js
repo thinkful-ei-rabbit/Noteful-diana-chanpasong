@@ -15,7 +15,7 @@ import './App.css';
 class App extends Component {
     state = {
         notes: [],
-        folders: []
+        folders: [],
     };
     componentDidMount() {
         Promise.all([
@@ -92,7 +92,6 @@ class App extends Component {
         const value = {
             notes: this.state.notes,
             folders: this.state.folders,
-            selectedFolderId: null,
             deleteNote: this.handleDeleteNote,
             handleAddFolder: this.handleAddFolder,
             handleAddNote: this.handleAddNote

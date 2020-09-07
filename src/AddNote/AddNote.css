@@ -29,3 +29,7 @@
     font-size: 1.4em;
     cursor: pointer;
 }
+.AddNote button:disabled {
+    background: grey;
+    opacity: .3;
+}
